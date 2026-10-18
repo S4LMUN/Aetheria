@@ -11,7 +11,6 @@ hl.bind(vars.SUP .. "Z",            hl.dsp.exec_cmd(vars.browser))
 hl.bind(vars.SUP .. "C",            hl.dsp.exec_cmd(vars.editor))
 hl.bind(vars.SUP .. "N",            hl.dsp.exec_cmd(vars.note))
 
--- hl.bind(SUPSM .. "Q",            hl.dsp.exec_cmd()) kill
 hl.bind(SUPSM    .. "left", hl.dsp.window.swap({ direction = "left" }))
 hl.bind(SUPSM    .. "right", hl.dsp.window.swap({ direction = "right" }))
 hl.bind(SUPSM    .. "up", hl.dsp.window.swap({ direction = "up" }))
@@ -27,7 +26,7 @@ for i = 1, 9 do
 end
 
 hl.bind(SUPCA .. "mouse_down", move_all("e+1"))
-hl.bind(SUPCA .. "mouse_up", move_all("e-1"))
+hl.bind(SUPCA .. "mouse_up",   move_all("e-1"))
 
 hl.bind(vars.SUP .. "Q",            hl.dsp.window.close())
 hl.bind(SUPSM    .. "M",            hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -51,6 +50,7 @@ end
 
 hl.bind(vars.SUP .. "D", toggle_app("communicate", vars.discord))
 hl.bind(vars.SUP .. "O", toggle_app("record", vars.recorder))
+hl.bind(vars.SUP .. "M", toggle_app("music", vars.musicplayer))
 
 hl.bind(vars.SUP .. "mouse_down",   hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(vars.SUP .. "mouse_up",     hl.dsp.focus({ workspace = "e-1" }))

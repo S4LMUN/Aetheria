@@ -6,6 +6,7 @@ return {
     -- Programs
     terminal = "kitty",
     taskmanager = "kitty -e btop",
+    musicplayer = "tauon",
     browser = "zen-browser",
     editor = "codium",
     note = "obsidian",

@@ -34,3 +34,11 @@ hl.window_rule({
     },
     workspace = "special:record",
 })
+
+hl.window_rule({
+    name = "tauon-special-workspace",
+    match = {
+        class = "^tauonmb$",
+    },
+    workspace = "special:music",
+})
