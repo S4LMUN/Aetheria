@@ -3,10 +3,11 @@ local toggle_app = require("utils.toggle_app")
 local move_all   = require("utils.move_all")
 local SUPSM      = vars.SUP .. vars.SM
 local SUPCA      = vars.SUP .. vars.CA
+local TAPP       = vars.terminal .. " -e "
 
 hl.bind(vars.SUP .. "T",            hl.dsp.exec_cmd(vars.terminal))
 hl.bind(vars.SUP .. "RETURN",       hl.dsp.exec_cmd(vars.terminal))
-hl.bind(SUPSM    .. "TAB",          hl.dsp.exec_cmd(vars.taskmanager))
+hl.bind(SUPSM    .. "TAB",          hl.dsp.exec_cmd(TAPP .. vars.taskmanager))
 hl.bind(vars.SUP .. "Z",            hl.dsp.exec_cmd(vars.browser))
 hl.bind(vars.SUP .. "C",            hl.dsp.exec_cmd(vars.editor))
 hl.bind(vars.SUP .. "N",            hl.dsp.exec_cmd(vars.note))

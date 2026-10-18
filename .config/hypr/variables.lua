@@ -5,7 +5,7 @@ return {
     CA  = "CTRL + ALT +",
     -- Programs
     terminal = "kitty",
-    taskmanager = "kitty -e btop",
+    taskmanager = "btop",
     musicplayer = "tauon",
     browser = "zen-browser",
     editor = "codium",
