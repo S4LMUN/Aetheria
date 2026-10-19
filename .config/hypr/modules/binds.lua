@@ -1,8 +1,5 @@
 local vars        = require("variables")
-local toggle_app  = require("utils.toggle_app")
-local move_all    = require("utils.move_all")
-local screenshot  = require("utils.screenshot")
-local colorpicker = require("utils.colorpicker")
+local utils       = require("utils.abilities")
 local SUPSM       = vars.SUP .. vars.SM
 local SUPCA       = vars.SUP .. vars.CA
 local TAPP        = vars.terminal .. " -e "
@@ -14,8 +11,8 @@ hl.bind(vars.SUP .. "Z",            hl.dsp.exec_cmd(vars.browser))
 hl.bind(vars.SUP .. "C",            hl.dsp.exec_cmd(vars.editor))
 hl.bind(vars.SUP .. "N",            hl.dsp.exec_cmd(vars.note))
 
-hl.bind(SUPSM    .. "S",            screenshot())
-hl.bind(SUPSM    .. "C",            colorpicker())
+hl.bind(SUPSM    .. "S",            utils.screenshot())
+hl.bind(SUPSM    .. "C",            utils.colorpicker())
 
 hl.bind(SUPSM    .. "left", hl.dsp.window.swap({ direction = "left" }))
 hl.bind(SUPSM    .. "right", hl.dsp.window.swap({ direction = "right" }))
@@ -28,11 +25,11 @@ hl.bind(vars.SUP .. "CTRL + up",    hl.dsp.window.resize({ x = 0, y = -20, relat
 hl.bind(vars.SUP .. "CTRL + down",  hl.dsp.window.resize({ x = 0, y = 20, relative = true }), { repeating = true })
 
 for i = 1, 9 do
-    hl.bind(SUPCA .. i, move_all(i))
+    hl.bind(SUPCA .. i, utils.move_all(i))
 end
 
-hl.bind(SUPCA .. "mouse_down", move_all("e+1"))
-hl.bind(SUPCA .. "mouse_up",   move_all("e-1"))
+hl.bind(SUPCA .. "mouse_down", utils.move_all("e+1"))
+hl.bind(SUPCA .. "mouse_up",   utils.move_all("e-1"))
 
 hl.bind(vars.SUP .. "Q",            hl.dsp.window.close())
 hl.bind(SUPSM    .. "M",            hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))
@@ -54,9 +51,9 @@ for i = 1, 10 do
     hl.bind(SUPSM    .. key,        hl.dsp.window.move({ workspace = i }))
 end
 
-hl.bind(vars.SUP .. "D", toggle_app("communicate", vars.discord))
-hl.bind(vars.SUP .. "O", toggle_app("record", vars.recorder))
-hl.bind(vars.SUP .. "M", toggle_app("music", vars.musicplayer))
+hl.bind(vars.SUP .. "D",            utils.toggle_app("communicate", vars.discord))
+hl.bind(vars.SUP .. "O",            utils.toggle_app("record", vars.recorder))
+hl.bind(vars.SUP .. "M",            utils.toggle_app("music", vars.musicplayer))
 
 hl.bind(vars.SUP .. "mouse_down",   hl.dsp.focus({ workspace = "e+1" }))
 hl.bind(vars.SUP .. "mouse_up",     hl.dsp.focus({ workspace = "e-1" }))
